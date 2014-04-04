@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="CAGen"
+	ProjectGUID="{C300C839-897C-4F14-AA01-4B760F558B84}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="E:\Programming\CTT\CAGen;&quot;E:\Programming\CTT\CAGen\Header Files&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="5"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;E:\Programming\CTT\CAGen\Header Files&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				RuntimeLibrary="4"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="源文件"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath=".\Source Files\CTTMain.cpp">
+			</File>
+		</Filter>
+		<Filter
+			Name="AssistMethod"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\AssistMethod.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\AssistMethod.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\ReadInputFile.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\ReadInputFile.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Combinations"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\CombSet.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CombSet.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\LocalCombSet.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\LocalCombSet.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="CA"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\CoveringArray.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CoveringArray.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="CAGenerator"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\CAGenerator.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CAGenerator.h">
+			</File>
+			<Filter
+				Name="FSCAGenerator"
+				Filter="">
+				<File
+					RelativePath=".\Source Files\FSCAGenerator.cpp">
+				</File>
+				<File
+					RelativePath=".\Header Files\FSCAGenerator.h">
+				</File>
+				<Filter
+					Name="Construct"
+					Filter="">
+					<File
+						RelativePath=".\Source Files\TwoLevel.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\TwoLevel.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="SSTSearch"
+					Filter="">
+					<File
+						RelativePath=".\Source Files\PathSelector.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\PathSelector.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\SSTSearch.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\SSTSearch.h">
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="VSCAGenerator"
+				Filter="">
+				<File
+					RelativePath=".\Source Files\VSCAGenerator.cpp">
+				</File>
+				<File
+					RelativePath=".\Header Files\VSCAGenerator.h">
+				</File>
+				<Filter
+					Name="Greedy"
+					Filter="">
+					<File
+						RelativePath=".\Source Files\AETG.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\AETG.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\BestGreedy.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\BestGreedy.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\GreedyFrame.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\GreedyFrame.h">
+					</File>
+					<File
+						RelativePath=".\TCG.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\TCG.h">
+					</File>
+					<Filter
+						Name="Density"
+						Filter="">
+						<File
+							RelativePath=".\Source Files\DensityFO.cpp">
+						</File>
+						<File
+							RelativePath=".\Header Files\DensityFO.h">
+						</File>
+						<File
+							RelativePath=".\Source Files\DensityFrame.cpp">
+						</File>
+						<File
+							RelativePath=".\Header Files\DensityFrame.h">
+						</File>
+						<File
+							RelativePath=".\Source Files\DensityRO.cpp">
+						</File>
+						<File
+							RelativePath=".\Header Files\DensityRO.h">
+						</File>
+					</Filter>
+				</Filter>
+				<Filter
+					Name="IPO"
+					Filter="">
+					<File
+						RelativePath=".\Source Files\IPOFrame.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\IPOFrame.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\ParaOrder.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\ParaOrder.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\ParaSelector.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\ParaSelector.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="Union"
+					Filter="">
+					<File
+						RelativePath=".\Source Files\MyUnion.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\MyUnion.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\ReqMerge.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\ReqMerge.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\ReqSelector.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\ReqSelector.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\UnionFrame.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\UnionFrame.h">
+					</File>
+				</Filter>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Requirement"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\FixedCoverage.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\FixedCoverage.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\FixedPlusCoverage.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\FixedPlusCoverage.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\MixedCoverage.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\MixedCoverage.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\Requirement.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\Requirement.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="NeighborFactor"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\NeighborCoverage.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\NeighborCoverage.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\NeighborGenerator.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\NeighborGenerator.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\NeighborPlusCoverage.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\NeighborPlusCoverage.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="WeightedPri"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\AddPriSort_Reverse.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\AddPriSort_Reverse.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\AddtlPriSort.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\AddtlPriSort.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\CombPriTable.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CombPriTable.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\CostAPCC.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CostAPCC.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\TotalPriSort.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\TotalPriSort.h">
+			</File>
+			<File
+				RelativePath=".\Source Files\WeightedDensity.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\WeightedDensity.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="IncrementalPri"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\IncrementPri.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\IncrementPri.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Partial CA"
+			Filter="">
+			<File
+				RelativePath=".\Source Files\CreatePartialCombSet.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\CreatePartialCombSet.h">
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\ReadMe.txt">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

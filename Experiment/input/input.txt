@@ -1,0 +1,4 @@
+[Exper Parameters]
+5^6
+[Fixed Strength]
+3
