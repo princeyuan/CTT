@@ -13,14 +13,14 @@ namespace CTT
 	{
 	public:
 
-		LocalCombSet(const std::set<int> &para_set,const Requirement &req);
+		LocalCombSet(const std::set<int> &param_set,const Requirement &req);
 
-		LocalCombSet(const std::set<int> &para_set,const std::vector<int> &parameters);
+		LocalCombSet(const std::set<int> &param_set,const std::vector<int> &parameters);
 
 		//针对一个Coverage Requirement中参数集合的一个子集
 		//给出该子集所对应的Coverage Requirement的组合覆盖状态
 		//LocalCombSet(const LocalCombSet &initial_state,  //原始覆盖状态集合
-		//			 const std::set<int> &sub_para_set,  //因素子集
+		//			 const std::set<int> &sub_param_set,  //因素子集
 		//			 const Requirement &req,  //测试需求给出因素取值情况
 		//			 bool is_equal_state=true);  //initial_state中覆盖状态是否相同
 
@@ -44,7 +44,7 @@ namespace CTT
 		int getIndex(const std::vector<int> &combination) const;
 		void getCombination(std::vector<int> &combination,int index) const;
 
-		const std::set<int> &getParaSet() const {return m_para_set;};
+		const std::set<int> &getParaSet() const {return m_param_set;};
 
 		int CoverNewCount(CoveringArray::const_iterator it_begin,
 						  CoveringArray::const_iterator it_end) const;
@@ -54,11 +54,16 @@ namespace CTT
 		bool isCover(CoveringArray::const_iterator it_begin,
 					 CoveringArray::const_iterator it_end) const;
 
+		float CoverPercent(CoveringArray::const_iterator it_begin,
+						  CoveringArray::const_iterator it_end,
+						  int &required_number,
+						  int &covered_number) const;
+
 		void Print(std::ostream &out=std::cout) const;
 
 		bool operator< (const LocalCombSet other) const
 		{
-			return m_para_set<other.getParaSet();
+			return m_param_set<other.getParaSet();
 		};
 
 	private:
@@ -68,7 +73,7 @@ namespace CTT
 
 	private:
 
-		std::set<int> m_para_set; //因素集合
+		std::set<int> m_param_set; //因素集合
 
 		std::vector<int> m_flags; //各组合需被覆盖的次数
 

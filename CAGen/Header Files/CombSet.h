@@ -35,8 +35,13 @@ namespace CTT
 		bool isCover(CoveringArray::const_iterator it_begin,
 					 CoveringArray::const_iterator it_end) const;
 
-		LocalCombSet &getLocalState(const std::set<int> &para_set);
-		const LocalCombSet &getLocalState(const std::set<int> &para_set) const;
+		float CoverPercent(CoveringArray::const_iterator it_begin,
+						   CoveringArray::const_iterator it_end,
+						   int &required_number,
+						   int &covered_number) const;
+
+		LocalCombSet &getLocalState(const std::set<int> &param_set);
+		const LocalCombSet &getLocalState(const std::set<int> &param_set) const;
 
 		void Print(std::ostream &out=std::cout) const;
 

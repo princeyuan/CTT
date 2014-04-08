@@ -78,8 +78,8 @@ namespace CTT
 			}
 
 			int fixed_num=locations1.size();
-			int para_num=state.getParaSet().size();
-			float actual_exponent=((float)(para_num-fixed_num))/((float)(para_num));
+			int param_num=state.getParaSet().size();
+			float actual_exponent=((float)(param_num-fixed_num))/((float)(param_num));
 			float actual_denominator=pow(((float)(m_max_denominator)),actual_exponent);
 			return ((float)(sum))/actual_denominator;
 		}

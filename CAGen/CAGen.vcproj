@@ -100,7 +100,7 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
-				RelativePath=".\Source Files\CTTMain.cpp">
+				RelativePath=".\CTTMain.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -221,7 +221,13 @@
 						RelativePath=".\Header Files\GreedyFrame.h">
 					</File>
 					<File
-						RelativePath=".\TCG.cpp">
+						RelativePath=".\Source Files\HybridGreedy.cpp">
+					</File>
+					<File
+						RelativePath=".\Header Files\HybridGreedy.h">
+					</File>
+					<File
+						RelativePath=".\Source Files\TCG.cpp">
 					</File>
 					<File
 						RelativePath=".\Header Files\TCG.h">
@@ -379,6 +385,12 @@
 				RelativePath=".\Header Files\CostAPCC.h">
 			</File>
 			<File
+				RelativePath=".\Source Files\OriginalOrder.cpp">
+			</File>
+			<File
+				RelativePath=".\Header Files\OriginalOrder.h">
+			</File>
+			<File
 				RelativePath=".\Source Files\TotalPriSort.cpp">
 			</File>
 			<File
@@ -410,6 +422,18 @@
 			<File
 				RelativePath=".\Header Files\CreatePartialCombSet.h">
 			</File>
+		</Filter>
+		<Filter
+			Name="Constraint"
+			Filter="">
+			<Filter
+				Name="Soft Constraint"
+				Filter="">
+			</Filter>
+			<Filter
+				Name="Hard Constraint"
+				Filter="">
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt">

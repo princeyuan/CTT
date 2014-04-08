@@ -14,7 +14,7 @@ namespace CTT
 
 	private:
 
-		int SelectOnePara(std::list<int> &para_cache,
+		int SelectOnePara(std::list<int> &param_cache,
 						  const std::vector<int> &one);
 	
 		int FixOneValue(int selected_para,

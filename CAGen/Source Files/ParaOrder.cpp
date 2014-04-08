@@ -13,7 +13,7 @@ namespace CTT
 	int ParaOrder::SelectOneFactor(std::set<int> &dealed_factors,
 								   std::list<int> &undealed_factors)
 	{
-		return (*m_para_selector)(undealed_factors,dealed_factors,
+		return (*m_param_selector)(undealed_factors,dealed_factors,
 								  *m_uncover_table,*m_req);
 	}
 
@@ -151,10 +151,10 @@ namespace CTT
 			it!=current_comb_set.end();++it)
 		{
 			int j=-1;
-			const std::set<int> &paras=it->getParaSet();
-			std::vector<int> combination(paras.size(),-1);
-			for(std::set<int>::const_iterator it_1=paras.begin();
-				it_1!=paras.end();++it_1)
+			const std::set<int> &params=it->getParaSet();
+			std::vector<int> combination(params.size(),-1);
+			for(std::set<int>::const_iterator it_1=params.begin();
+				it_1!=params.end();++it_1)
 			{
 				if(*it_1!=current_factor)
 					combination[++j]=one_line[*it_1];

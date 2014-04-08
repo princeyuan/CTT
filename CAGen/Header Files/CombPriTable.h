@@ -22,8 +22,8 @@ namespace CTT
 		float CoverNewCount(const std::vector<int> &test,
 							const CombSet &comb_set) const;
 
-		std::vector<float> &getLocalTable(const std::set<int> &para_set);
-		const std::vector<float> &getLocalTable(const std::set<int> &para_set) const;
+		std::vector<float> &getLocalTable(const std::set<int> &param_set);
+		const std::vector<float> &getLocalTable(const std::set<int> &param_set) const;
 
 	public:
 

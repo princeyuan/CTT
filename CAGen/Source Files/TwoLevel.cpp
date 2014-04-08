@@ -190,9 +190,9 @@ namespace CTT
 			(*ita)[current_para]=column[++i];
 		
 		CombSet::const_iterator it=m_uncover_table->begin();
-		std::vector<int> part_para_set(strength_minus_one);
+		std::vector<int> part_param_set(strength_minus_one);
 		for(int i=0;i<strength_minus_one;++i)
-			part_para_set[i]=i;
+			part_param_set[i]=i;
 
 		do
 		{
@@ -204,7 +204,7 @@ namespace CTT
 				std::set<int>::const_iterator iti=it->getParaSet().begin();
 				for(;j<strength_minus_one;++j)
 				{
-					if(*iti!=part_para_set[j])
+					if(*iti!=part_param_set[j])
 						break;
 					else
 						++iti;
@@ -221,7 +221,7 @@ namespace CTT
 			else
 				return false;
 		}
-		while(next_combination(part_para_set,current_para,true));
+		while(next_combination(part_param_set,current_para,true));
 
 		//all have been checked and passed
 		return true;
@@ -244,8 +244,8 @@ namespace CTT
 
 		if(m_req->getStrength()>2)
 		{
-			std::vector<int> sub_paras(current_para,2);
-			FixedCoverage sub_req(sub_paras,m_req->getStrength()-1);
+			std::vector<int> sub_params(current_para,2);
+			FixedCoverage sub_req(sub_params,m_req->getStrength()-1);
 			TwoLevel sub_gen;
 			CoveringArray *sub_array=sub_gen(sub_req);
 			sub_array->ExtendColumns(m_req->getParaNum()-current_para);

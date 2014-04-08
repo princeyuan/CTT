@@ -7,21 +7,21 @@ namespace CTT
 		one.resize(m_req->getParaNum(),-1);
 
 		//Create a list of all parameters
-		std::list<int> para_cache;
+		std::list<int> param_cache;
 		for(int i=0;i<m_req->getParaNum();i++)
-			para_cache.push_back(i);
+			param_cache.push_back(i);
 
-		while(!para_cache.empty())
+		while(!param_cache.empty())
 		{
-			//Select a parameter which have the greatest priority and remove it from para_cache
-			int selected_para=SelectOnePara(para_cache,one);
+			//Select a parameter which have the greatest priority and remove it from param_cache
+			int selected_para=SelectOnePara(param_cache,one);
 
 			//Select a value for the selected parameter and fix it
 			int select_value=FixOneValue(selected_para,one);
 		}
 	}
 
-	int DensityFO::SelectOnePara(std::list<int> &para_cache,const std::vector<int> &one)
+	int DensityFO::SelectOnePara(std::list<int> &param_cache,const std::vector<int> &one)
 	{
 		//Create a list of density for each coverage requirement
 		std::list<float> req_density_table;
@@ -31,24 +31,24 @@ namespace CTT
 			req_density_table.push_back(CalculateReqDensity(*it,one));
 		}
 
-		float max_para_density=-1;
-		std::list<int>::iterator selected_para_it=para_cache.end();
+		float max_param_density=-1;
+		std::list<int>::iterator selected_param_it=param_cache.end();
 
 		//Select the parameter with greatest factor density
-		for(std::list<int>::iterator it=para_cache.begin();it!=para_cache.end();++it)
+		for(std::list<int>::iterator it=param_cache.begin();it!=param_cache.end();++it)
 		{
-			float para_density=CalculateParaDensity(*it,req_density_table);
+			float param_density=CalculateParaDensity(*it,req_density_table);
 			
-			if(para_density>max_para_density)
+			if(param_density>max_param_density)
 			{
-				max_para_density=para_density;
-				selected_para_it=it;
+				max_param_density=param_density;
+				selected_param_it=it;
 			}
 		}
 		
-		int para_index=*selected_para_it;
-		para_cache.erase(selected_para_it);
-		return para_index;
+		int param_index=*selected_param_it;
+		param_cache.erase(selected_param_it);
+		return param_index;
 	}
 	
 	int DensityFO::FixOneValue(int selected_para,
@@ -74,15 +74,15 @@ namespace CTT
 	float DensityFO::CalculateParaDensity(int parameter,
 										  const std::list<float> &req_density_table)
 	{
-		float para_density=0;
+		float param_density=0;
 
 		std::list<float>::const_iterator it1=req_density_table.begin();
 		CombSet::const_iterator it2=m_uncover_table->begin();
 		for(;it1!=req_density_table.end();++it1,++it2)
 			if(it2->getParaSet().find(parameter)!=it2->getParaSet().end())
-				para_density+=*it1;
+				param_density+=*it1;
 
-		return para_density;
+		return param_density;
 	}
 
 	float DensityFO::CalculateValueDensity(int parameter,int value,

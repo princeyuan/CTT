@@ -11,17 +11,17 @@ namespace  CTT
 			it!=global_state.end();++it)
 		{
 			int j=-1;
-			const std::set<int> &paras=it->getParaSet();
-			std::vector<int> combination(paras.size(),-1);
-			std::set<int>::const_iterator it1=paras.begin();
-			for(;it1!=paras.end();++it1)
+			const std::set<int> &params=it->getParaSet();
+			std::vector<int> combination(params.size(),-1);
+			std::set<int>::const_iterator it1=params.begin();
+			for(;it1!=params.end();++it1)
 			{
 				if(one_line[*it1]!=-1)
 					combination[++j]=one_line[*it1];
 				else
 					break;
 			}
-			if(it1==paras.end())
+			if(it1==params.end())
 				it->Remove(combination);
 		}
 	}

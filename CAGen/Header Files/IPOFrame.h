@@ -42,7 +42,7 @@ namespace CTT
 	protected:
 
 		int canInsertComb(const std::vector<int> &comb,
-						  const std::set<int> &paras,
+						  const std::set<int> &params,
 						  const std::vector<int> &line);
 
 	private:

@@ -83,13 +83,13 @@ namespace CTT
 	}
 
 	int IPOFrame::canInsertComb(const std::vector<int> &comb,
-								const std::set<int> &paras,
+								const std::set<int> &params,
 								const std::vector<int> &one_line)
 	{
 		int k=0;
 		int match_degree=0;
-		for(std::set<int>::const_iterator it=paras.begin();
-			it!=paras.end();++it,++k)
+		for(std::set<int>::const_iterator it=params.begin();
+			it!=params.end();++it,++k)
 		{
 			if(one_line[*it]!=-1 && comb[k]!=one_line[*it])
 				return -1;

@@ -108,10 +108,10 @@ E.g. for the set {0,1,2,3,4} and k=3, there will be
 *************************************************/
 bool next_combination_2(std::vector<int> &combination,int elements_num);
 
-//使用{0,1,...,para_num-1}随机生成inter_num个互不包含的集合
+//使用{0,1,...,param_num-1}随机生成inter_num个互不包含的集合
 //集合的势随机确定, 势为2, 3, 4的概率之比为2:1:1
 /*void CreateRandomInteractions(std::vector<std::set<int> > &interactions,
-							  int para_num,
+							  int param_num,
 							  int inter_num);*/
 
 bool LoadInteractionsFromFile(const std::string &filename,

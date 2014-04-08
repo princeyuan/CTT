@@ -50,8 +50,8 @@ namespace CTT
 		{
 			int last_value=(current_para==0)?0:temp[current_para-1];
 			int *candidates=(*m_path_selector)(*m_req,current_para,last_value);
-			int para_value_num=m_req->getParaValue(current_para);
-			for(int i=0;i<para_value_num;i++)
+			int param_value_num=m_req->getParaValue(current_para);
+			for(int i=0;i<param_value_num;i++)
 			{
 				temp[current_para]=candidates[i];
 				if(IsFit(temp,array,current_para))
@@ -75,8 +75,8 @@ namespace CTT
 		{
 			int last_value=(current_para==0)?0:temp[current_para-1];
 			int *candidates=(*m_path_selector)(*m_req,current_para,last_value);
-			int para_value_num=m_req->getParaValue(current_para);
-			for(int i=0;i<para_value_num;i++)
+			int param_value_num=m_req->getParaValue(current_para);
+			for(int i=0;i<param_value_num;i++)
 			{
 				if(flag)
 				{

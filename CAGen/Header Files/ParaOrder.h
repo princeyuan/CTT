@@ -12,9 +12,11 @@ namespace CTT
 	public:
 
 		ParaOrder(CTT::ReqSelector *req_selector = new CTT::ReqS_MC,
-				  CTT::ParaSelector *para_selector = new CTT::ParaS_MV,
+				  CTT::ParaSelector *param_selector = new CTT::ParaS_MV,
 				  bool is_Need_FixDonotCareValue = false)
-			:IPOFrame(is_Need_FixDonotCareValue),m_req_selector(req_selector),m_para_selector(para_selector)
+			:IPOFrame(is_Need_FixDonotCareValue),
+			 m_req_selector(req_selector),
+			 m_param_selector(param_selector)
 		{};
 
 	protected:
@@ -62,7 +64,7 @@ namespace CTT
 	private:
 
 		CTT::ReqSelector *m_req_selector;
-		CTT::ParaSelector *m_para_selector;
+		CTT::ParaSelector *m_param_selector;
 
 	};	//class ParaOrder
 

@@ -30,14 +30,14 @@ namespace CTT
 			for(int i=0;i<it_subset->second;i++)
 				index[i]=i;
 			std::set<int> temp;
-			for(i=0;i<index.size();i++)
+			for(int i=0;i<index.size();i++)
 				temp.insert(subset[index[i]]);
 			big_interactions.insert(temp);
 
 			while(next_combination(index,subset.size()))
 			{
 				temp.clear();
-				for(i=0;i<index.size();i++)
+				for(int i=0;i<index.size();i++)
 					temp.insert(subset[index[i]]);
 				big_interactions.insert(temp);
 			}

@@ -21,13 +21,13 @@ namespace CTT
 	bool IsSubCover(char *str);
 	bool IsInteractions(char *str);
 
-	bool GetParameters(char* mark,std::ifstream &infile,std::vector<int> &paras);
+	bool GetParameters(char* mark,std::ifstream &infile,std::vector<int> &params);
 	bool GetFixedStrength(std::ifstream &infile,int &strength);
 	bool GetSubSets(std::ifstream &infile,std::map<std::set<int>,int> &subsets);
 	bool GetInteractions(std::ifstream &infile,std::set<std::set<int> > &inters);
 
-	bool ReadExperParas(char *str,std::vector<int> &paras);
-	bool ReadSimpleParas(std::vector<char*> str,std::vector<int> &paras);
+	bool ReadExperParams(char *str,std::vector<int> &params);
+	bool ReadSimpleParams(std::vector<char*> str,std::vector<int> &params);
 	bool ReadFixedStrength(char *str,int &strength);
 	bool ReadOneSimpleSubset(char *str,std::map<std::set<int>,int> &subsets);
 }

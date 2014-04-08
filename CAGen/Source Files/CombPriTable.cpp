@@ -60,13 +60,13 @@ namespace CTT
 		return count;
 	}
 
-	std::vector<float> &CombPriTable::getLocalTable(const std::set<int> &para_set)
+	std::vector<float> &CombPriTable::getLocalTable(const std::set<int> &param_set)
 	{
-		return m_table.find(para_set)->second;
+		return m_table.find(param_set)->second;
 	}
 
-	const std::vector<float> &CombPriTable::getLocalTable(const std::set<int> &para_set) const
+	const std::vector<float> &CombPriTable::getLocalTable(const std::set<int> &param_set) const
 	{
-		return m_table.find(para_set)->second;
+		return m_table.find(param_set)->second;
 	}
 }

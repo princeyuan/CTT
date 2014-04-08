@@ -70,8 +70,7 @@ namespace CTT
 
 	void CombSet::ModifyCoverState(const std::vector<int> &test)
 	{
-		for(iterator it=m_collections.begin();
-			it!=m_collections.end();++it)
+		for(iterator it=m_collections.begin();it!=m_collections.end();++it)
 		{
 			it->ModifyCoverState(test);
 		}
@@ -89,20 +88,41 @@ namespace CTT
 		return true;
 	}
 
-	LocalCombSet &CombSet::getLocalState(const std::set<int> &para_set)
+	float CombSet::CoverPercent(CoveringArray::const_iterator it_begin,
+								CoveringArray::const_iterator it_end,
+								int &required_number,
+								int &covered_number) const
+	{
+		covered_number=0;
+		required_number=0;
+		for(const_iterator it=m_collections.begin();
+			it!=m_collections.end();++it)
+		{
+			int covered_temp=0;
+			int required_temp=0;
+			float percent_temp=
+				it->CoverPercent(it_begin,it_end,required_temp,covered_temp);
+
+			covered_number+=covered_temp;
+			required_number+=required_temp;
+		}
+		return ((float)covered_number)/((float)required_number);
+	}
+
+	LocalCombSet &CombSet::getLocalState(const std::set<int> &param_set)
 	{
 		for(iterator it=begin();it!=end();++it)
-			if(it->getParaSet()==para_set)
+			if(it->getParaSet()==param_set)
 				return *it;
 		std::cerr<<"No interaction among given parameters!"<<std::endl;
 		throw "Out of Range";
 	}
 
 	const LocalCombSet &CombSet::getLocalState(
-		const std::set<int> &para_set) const
+		const std::set<int> &param_set) const
 	{
 		for(const_iterator it=begin();it!=end();++it)
-			if(it->getParaSet()==para_set)
+			if(it->getParaSet()==param_set)
 				return *it;
 		std::cerr<<"No interaction among given parameters!"<<std::endl;
 		throw "Out of Range";

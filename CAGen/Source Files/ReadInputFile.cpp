@@ -16,9 +16,9 @@ namespace CTT
 		}
 
 		int strength=1;
-		std::vector<int> paras;
+		std::vector<int> params;
 		char buffer[1024];
-		bool have_paras=false;
+		bool have_params=false;
 		bool have_strength=false;
 		
 		while(infile.getline(buffer,1024,'\n'))
@@ -27,8 +27,8 @@ namespace CTT
 				continue;
 
 			if(IsParameters(buffer))
-				if(GetParameters(buffer,infile,paras))
-					have_paras=true;
+				if(GetParameters(buffer,infile,params))
+					have_params=true;
 
 			if(IsFixedStrength(buffer))
 				if(GetFixedStrength(infile,strength))
@@ -36,8 +36,8 @@ namespace CTT
 		}
 
 		infile.close();
-		if(have_paras && have_strength)
-			return new FixedCoverage(paras,strength);
+		if(have_params && have_strength)
+			return new FixedCoverage(params,strength);
 		else
 			return NULL;
 	}
@@ -49,10 +49,10 @@ namespace CTT
 		if(!infile)return NULL;
 
 		int strength=1;
-		std::vector<int> paras;
+		std::vector<int> params;
 		std::map<std::set<int>,int> subsets;
 		char buffer[1024];
-		bool have_paras=false;
+		bool have_params=false;
 		bool have_strength=false;
 		bool have_subsets=false;
 		
@@ -62,8 +62,8 @@ namespace CTT
 				continue;
 
 			if(IsParameters(buffer))
-				if(GetParameters(buffer,infile,paras))
-					have_paras=true;
+				if(GetParameters(buffer,infile,params))
+					have_params=true;
 
 			if(IsFixedStrength(buffer))
 				if(GetFixedStrength(infile,strength))
@@ -75,10 +75,10 @@ namespace CTT
 		}
 
 		infile.close();
-		if(have_paras && have_strength)
-			return new FixedPlusCoverage(paras,strength,subsets);
-		else if(have_paras && have_subsets)
-			return new FixedPlusCoverage(paras,1,subsets);
+		if(have_params && have_strength)
+			return new FixedPlusCoverage(params,strength,subsets);
+		else if(have_params && have_subsets)
+			return new FixedPlusCoverage(params,1,subsets);
 		else
 			return NULL;
 	}
@@ -89,10 +89,10 @@ namespace CTT
 		infile.open(filename,std::ios::in);
 		if(!infile)return NULL;
 
-		std::vector<int> paras;
+		std::vector<int> params;
 		std::set<std::set<int> > interactions;
 		char buffer[1024];
-		bool have_paras=false;
+		bool have_params=false;
 		bool have_inters=false;
 		
 		while(infile.getline(buffer,1024,'\n'))
@@ -101,8 +101,8 @@ namespace CTT
 				continue;
 
 			if(IsParameters(buffer))
-				if(GetParameters(buffer,infile,paras))
-					have_paras=true;
+				if(GetParameters(buffer,infile,params))
+					have_params=true;
 
 			if(IsInteractions(buffer))
 				if(GetInteractions(infile,interactions))
@@ -110,8 +110,8 @@ namespace CTT
 		}
 
 		infile.close();
-		if(have_paras && have_inters)
-			return new MixedCoverage(paras,interactions);
+		if(have_params && have_inters)
+			return new MixedCoverage(params,interactions);
 		else
 			return NULL;
 	}
@@ -166,7 +166,7 @@ namespace CTT
 		return false;
 	}
 
-	bool GetParameters(char* mark,std::ifstream &infile,std::vector<int> &paras)
+	bool GetParameters(char* mark,std::ifstream &infile,std::vector<int> &params)
 	{
 		char buffer[1024];
 
@@ -176,7 +176,7 @@ namespace CTT
 			{
 				while(infile.getline(buffer,1024,'\n'))
 					if(!IsEmptyLine(buffer))
-						if(ReadExperParas(buffer,paras))
+						if(ReadExperParams(buffer,params))
 							return true;
 			}
 		}
@@ -199,7 +199,7 @@ namespace CTT
 					if(!IsEmptyLine(buffer))
 					{
 						str[1]=buffer;
-						if(ReadSimpleParas(str,paras))
+						if(ReadSimpleParams(str,params))
 							return true;
 						break;
 					}
@@ -266,7 +266,7 @@ namespace CTT
 			return false;
 	}
 
-	bool ReadExperParas(char *str,std::vector<int> &paras)
+	bool ReadExperParams(char *str,std::vector<int> &params)
 	{
 		char *tag=str;
 		int value,number;
@@ -289,7 +289,7 @@ namespace CTT
 			}
 			
 			for(int i=0;i<number;++i)
-				paras.push_back(value);
+				params.push_back(value);
 
 			if(*tag!='*')
 				break;
@@ -300,7 +300,7 @@ namespace CTT
 		return true;
 	}
 
-	bool ReadSimpleParas(std::vector<char*> str,std::vector<int> &paras)
+	bool ReadSimpleParams(std::vector<char*> str,std::vector<int> &params)
 	{
 		if(strncmp("number>>",str[0],8) || strncmp("list>>",str[1],6))
 			return false;
@@ -311,7 +311,7 @@ namespace CTT
 		if(number==0)
 			return false;
 
-		if(getAllNumFromLine(str[1],paras)<number)
+		if(getAllNumFromLine(str[1],params)<number)
 			return false;
 
 		return true;

@@ -70,10 +70,10 @@ namespace CTT
 		req_it->getCombination(comb_temp,selected_comb_index);
 
 		int k=0;
-		for(std::set<int>::const_iterator para_it=req_it->getParaSet().begin();
-			para_it!=req_it->getParaSet().end();++para_it)
+		for(std::set<int>::const_iterator param_it=req_it->getParaSet().begin();
+			param_it!=req_it->getParaSet().end();++param_it)
 		{
-			one_line[*para_it]=comb_temp[k++];
+			one_line[*param_it]=comb_temp[k++];
 		}
 	}
 

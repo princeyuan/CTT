@@ -373,7 +373,7 @@ bool next_combination(std::vector<int> &combination,
 }
 
 /*void CreateRandomInteractions(std::vector<std::set<int> > &interactions,
-							  int para_num,
+							  int param_num,
 							  int inter_num)
 {
 	srand((unsigned)time(NULL));
@@ -392,7 +392,7 @@ bool next_combination(std::vector<int> &combination,
 
 		do
 		{
-			int para=rand()%para_num;
+			int para=rand()%param_num;
 			inter.insert(para);
 		}
 		while(inter.size()!=strength);

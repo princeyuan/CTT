@@ -2,13 +2,13 @@
 
 namespace CTT
 {
-	LocalCombSet::LocalCombSet(const std::set<int> &para_set,
+	LocalCombSet::LocalCombSet(const std::set<int> &param_set,
 							   const Requirement &req)
-		:m_para_set(para_set),m_uncover_number(1),m_denominator(m_para_set.size(),0)
+		:m_param_set(param_set),m_uncover_number(1),m_denominator(m_param_set.size(),0)
 	{
 		int i=-1;
-		for(std::set<int>::const_iterator it=m_para_set.end();
-			it!=m_para_set.begin();)
+		for(std::set<int>::const_iterator it=m_param_set.end();
+			it!=m_param_set.begin();)
 		{
 			m_denominator[++i]=m_uncover_number;
 			m_uncover_number*=req.getParaValue(*(--it));
@@ -16,13 +16,13 @@ namespace CTT
 		m_flags.resize(m_uncover_number,1);
 	}
 
-	LocalCombSet::LocalCombSet(const std::set<int> &para_set,
+	LocalCombSet::LocalCombSet(const std::set<int> &param_set,
 							   const std::vector<int> &parameters)
-		:m_para_set(para_set),m_uncover_number(1),m_denominator(m_para_set.size(),0)
+		:m_param_set(param_set),m_uncover_number(1),m_denominator(m_param_set.size(),0)
 	{
 		int i=-1;
-		for(std::set<int>::const_iterator it=m_para_set.end();
-			it!=m_para_set.begin();)
+		for(std::set<int>::const_iterator it=m_param_set.end();
+			it!=m_param_set.begin();)
 		{
 			m_denominator[++i]=m_uncover_number;
 			m_uncover_number*=parameters[*(--it)];
@@ -31,15 +31,15 @@ namespace CTT
 	}
 
 	/*LocalCombSet::LocalCombSet(const LocalCombSet &initial_state,
-							   const std::set<int> &sub_para_set,
+							   const std::set<int> &sub_param_set,
 							   const Requirement &req,
 							   bool is_equal_state)
-		:m_para_set(sub_para_set),m_uncover_number(1),m_denominator(m_para_set.size(),0)
+		:m_param_set(sub_param_set),m_uncover_number(1),m_denominator(m_param_set.size(),0)
 	{
 		int i=-1;
 		int intemp=1;
-		for(std::set<int>::const_iterator it=m_para_set.end();
-			it!=m_para_set.begin();)
+		for(std::set<int>::const_iterator it=m_param_set.end();
+			it!=m_param_set.begin();)
 		{
 			m_denominator[++i]=intemp;
 			intemp*=req.getParaValue(*(--it));
@@ -97,9 +97,9 @@ namespace CTT
 	int LocalCombSet::getIndex(const std::vector<int> &combination) const
 	{
 		int index=0;
-		for(int i=0;i<m_para_set.size();i++)
+		for(int i=0;i<m_param_set.size();i++)
 		{
-			int j=m_para_set.size()-1-i;
+			int j=m_param_set.size()-1-i;
 			if(combination[j]!=-1)
 				index=index+(combination[j]*m_denominator[i]);
 			else
@@ -110,11 +110,11 @@ namespace CTT
 
 	void LocalCombSet::getCombination(std::vector<int> &combination,int index) const
 	{
-		combination.resize(m_para_set.size(),-1);
+		combination.resize(m_param_set.size(),-1);
 
-		for(int i=0;i<m_para_set.size();i++)
+		for(int i=0;i<m_param_set.size();i++)
 		{
-			int j=m_para_set.size()-1-i;
+			int j=m_param_set.size()-1-i;
 			combination[i]=index/m_denominator[j];
 			index=index%m_denominator[j];
 		}
@@ -124,17 +124,17 @@ namespace CTT
 									CoveringArray::const_iterator it_end) const
 	{
 		std::set<int> covered_indexs;
-		std::vector<int> combination(m_para_set.size(),-1);
+		std::vector<int> combination(m_param_set.size(),-1);
 
 		for(CoveringArray::const_iterator it=it_begin;it!=it_end;++it)
 		{
 			int i=-1;
-			std::set<int>::const_iterator itp=m_para_set.begin();
-			for(;itp!=m_para_set.end();++itp)
+			std::set<int>::const_iterator itp=m_param_set.begin();
+			for(;itp!=m_param_set.end();++itp)
 				if((*it)[*itp]!=-1)
 					combination[++i]=(*it)[*itp];
 
-			if(itp==m_para_set.end())
+			if(itp==m_param_set.end())
 			{
 				int index=getIndex(combination);
 				if(index!=-1)
@@ -148,9 +148,9 @@ namespace CTT
 	void LocalCombSet::ModifyCoverState(const std::vector<int> &test)
 	{
 		int i=0;
-		std::vector<int> comb(m_para_set.size(),-1);
-		std::set<int>::const_iterator it=m_para_set.begin();
-		for(;it!=m_para_set.end();++it)
+		std::vector<int> comb(m_param_set.size(),-1);
+		std::set<int>::const_iterator it=m_param_set.begin();
+		for(;it!=m_param_set.end();++it)
 			comb[i++]=test[*it];
 
 		int index=getIndex(comb);
@@ -161,18 +161,49 @@ namespace CTT
 	bool LocalCombSet::isCover(CoveringArray::const_iterator it_begin,
 							   CoveringArray::const_iterator it_end) const
 	{
-		int count=CoverNewCount(it_begin,it_end);
+		int covered_number=CoverNewCount(it_begin,it_end);
+		int required_number=0;
+		for(std::vector<int>::const_iterator it=m_flags.begin();
+			it!=m_flags.end();++it)
+		{
+			if(*it>0)
+				++required_number;
+		}
+		if(covered_number==required_number)
+			return true;
+		else
+			return false;
+
+		//Old version, can not work for partial covering array
+		/*int count=CoverNewCount(it_begin,it_end);
 		if(count==Size())
 			return true;
 		else
 			return false;
+		*/
+	}
+
+	float LocalCombSet::CoverPercent(CoveringArray::const_iterator it_begin,
+									CoveringArray::const_iterator it_end,
+									int &required_number,
+									int &covered_number) const
+	{
+		covered_number=CoverNewCount(it_begin,it_end);
+		required_number=0;
+		for(std::vector<int>::const_iterator it=m_flags.begin();
+			it!=m_flags.end();++it)
+		{
+			if(*it>0)
+				++required_number;
+		}
+		return ((float)covered_number)/((float)required_number);
 	}
 
 	void LocalCombSet::Print(std::ostream &out) const
 	{
-		const std::set<int> &paras=getParaSet();
+		const std::set<int> &params=getParaSet();
 		out<<"Local Cover State with Parameters:";
-		for(std::set<int>::const_iterator it=paras.begin();it!=paras.end();++it)
+		for(std::set<int>::const_iterator it=params.begin();it!=params.end();++it)
 			out<<" f"<<*it;
 		out<<'\n';
 
@@ -181,7 +212,7 @@ namespace CTT
 		{
 			out<<"NO. "<<i+1<<"\tcombination is: ";
 			getCombination(combination,i);
-			for(int j=0;j<m_para_set.size();j++)
+			for(int j=0;j<m_param_set.size();j++)
 				out<<combination[j]<<' ';
 			out<<"\tstate is:"<<m_flags[i]<<'\n';
 		}
@@ -207,12 +238,12 @@ namespace CTT
 
 		int i=0;
 		int j=-1;
-		std::vector<int> locations(m_para_set.size(),-1);
-		const std::set<int> &all_paras=initial_state.getParaSet();
-		for(std::set<int>::const_iterator it=all_paras.begin();
-			it!=all_paras.end();++it)
+		std::vector<int> locations(m_param_set.size(),-1);
+		const std::set<int> &all_params=initial_state.getParaSet();
+		for(std::set<int>::const_iterator it=all_params.begin();
+			it!=all_params.end();++it)
 		{
-			if(m_para_set.find(*it)!=m_para_set.end())
+			if(m_param_set.find(*it)!=m_param_set.end())
 				locations[++j]=i;
 			++i;
 		}
