@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		6819D87418F3C79E00535F25 /* libCAGen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCAGen.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6819D88418F3C7F600535F25 /* libCAGen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCAGen.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6819D87118F3C79E00535F25 /* Frameworks */ = {
+		6819D88118F3C7F600535F25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -21,17 +21,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6819D86B18F3C79E00535F25 = {
+		6819D87B18F3C7F600535F25 = {
 			isa = PBXGroup;
 			children = (
-				6819D87518F3C79E00535F25 /* Products */,
+				6819D88518F3C7F600535F25 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6819D87518F3C79E00535F25 /* Products */ = {
+		6819D88518F3C7F600535F25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6819D87418F3C79E00535F25 /* libCAGen.a */,
+				6819D88418F3C7F600535F25 /* libCAGen.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -39,7 +39,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6819D87218F3C79E00535F25 /* Headers */ = {
+		6819D88218F3C7F600535F25 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,13 +49,13 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6819D87318F3C79E00535F25 /* CAGen */ = {
+		6819D88318F3C7F600535F25 /* CAGen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6819D87818F3C79E00535F25 /* Build configuration list for PBXNativeTarget "CAGen" */;
+			buildConfigurationList = 6819D88818F3C7F600535F25 /* Build configuration list for PBXNativeTarget "CAGen" */;
 			buildPhases = (
-				6819D87018F3C79E00535F25 /* Sources */,
-				6819D87118F3C79E00535F25 /* Frameworks */,
-				6819D87218F3C79E00535F25 /* Headers */,
+				6819D88018F3C7F600535F25 /* Sources */,
+				6819D88118F3C7F600535F25 /* Frameworks */,
+				6819D88218F3C7F600535F25 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -63,37 +63,37 @@
 			);
 			name = CAGen;
 			productName = CAGen;
-			productReference = 6819D87418F3C79E00535F25 /* libCAGen.a */;
+			productReference = 6819D88418F3C7F600535F25 /* libCAGen.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6819D86C18F3C79E00535F25 /* Project object */ = {
+		6819D87C18F3C7F600535F25 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = NJUPT;
 			};
-			buildConfigurationList = 6819D86F18F3C79E00535F25 /* Build configuration list for PBXProject "CAGen" */;
+			buildConfigurationList = 6819D87F18F3C7F600535F25 /* Build configuration list for PBXProject "CAGen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6819D86B18F3C79E00535F25;
-			productRefGroup = 6819D87518F3C79E00535F25 /* Products */;
+			mainGroup = 6819D87B18F3C7F600535F25;
+			productRefGroup = 6819D88518F3C7F600535F25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6819D87318F3C79E00535F25 /* CAGen */,
+				6819D88318F3C7F600535F25 /* CAGen */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6819D87018F3C79E00535F25 /* Sources */ = {
+		6819D88018F3C7F600535F25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -103,7 +103,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6819D87618F3C79E00535F25 /* Debug */ = {
+		6819D88618F3C7F600535F25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -141,7 +141,7 @@
 			};
 			name = Debug;
 		};
-		6819D87718F3C79E00535F25 /* Release */ = {
+		6819D88718F3C7F600535F25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -173,7 +173,7 @@
 			};
 			name = Release;
 		};
-		6819D87918F3C79E00535F25 /* Debug */ = {
+		6819D88918F3C7F600535F25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
@@ -181,7 +181,7 @@
 			};
 			name = Debug;
 		};
-		6819D87A18F3C79E00535F25 /* Release */ = {
+		6819D88A18F3C7F600535F25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
@@ -192,24 +192,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6819D86F18F3C79E00535F25 /* Build configuration list for PBXProject "CAGen" */ = {
+		6819D87F18F3C7F600535F25 /* Build configuration list for PBXProject "CAGen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6819D87618F3C79E00535F25 /* Debug */,
-				6819D87718F3C79E00535F25 /* Release */,
+				6819D88618F3C7F600535F25 /* Debug */,
+				6819D88718F3C7F600535F25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6819D87818F3C79E00535F25 /* Build configuration list for PBXNativeTarget "CAGen" */ = {
+		6819D88818F3C7F600535F25 /* Build configuration list for PBXNativeTarget "CAGen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6819D87918F3C79E00535F25 /* Debug */,
-				6819D87A18F3C79E00535F25 /* Release */,
+				6819D88918F3C7F600535F25 /* Debug */,
+				6819D88A18F3C7F600535F25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6819D86C18F3C79E00535F25 /* Project object */;
+	rootObject = 6819D87C18F3C7F600535F25 /* Project object */;
 }
